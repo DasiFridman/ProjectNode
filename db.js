@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const DB_URI = 'mongodb://localhost:27017/mydatabase'; // כתובת מסד הנתונים
+const DB_URI = 'mongodb://localhost:27017/dataProject'; // כתובת מסד הנתונים
 
 mongoose.connect(DB_URI, {
     useNewUrlParser: true,

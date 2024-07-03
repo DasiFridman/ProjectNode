@@ -7,7 +7,6 @@ const userSchema = new mongoose.Schema({
     message: { type: String, required: true },
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    number: { type: Number, required: true }
 });
 
 const User = mongoose.model('User', userSchema);
