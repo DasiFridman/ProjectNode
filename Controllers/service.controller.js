@@ -1,4 +1,5 @@
 const express = require('express');
+const serviceService = require('../Services/service.service');
 const router = express.Router();
 
 
@@ -60,3 +61,5 @@ router.delete('/services/:id', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 })
+
+module.exports = router;

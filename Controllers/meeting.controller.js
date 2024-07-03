@@ -1,10 +1,11 @@
 const express = require('express');
+const meetingService = require('../Services/meeting.service');
 const router = express.Router();
 
 
 router.get('/meetings', async (req, res) => {
     try {
-        const meetings = await meetingService.getMeetings();
+        const meetings = await meetingService.getMeetingList();
         res.send(meetings);
     }
     catch (error) {
@@ -15,7 +16,7 @@ router.get('/meetings', async (req, res) => {
 router.get('/meetings/:orderNumber', async (req, res) => {
     try {
         const orderNumber = req.params.orderNumber;
-        const meeting = await meetingService.getMeeting(orderNumber);
+        const meeting = await meetingService.getMeetingByOrderNum(orderNumber);
         if (meeting)
             res.json(meeting);
         else
@@ -41,7 +42,7 @@ router.put('/meetings/:orderNumber', async (req, res) => {
     try {
         const orderNumber = req.params.orderNumber;
         const updateMeeting = req.body;
-        await meetingService.updateMeeting(updateMeeting);
+        await meetingService.updateMeeting(orderNumber,updateMeeting);
         res.json(updateMeeting);
     }
     catch (error) {
@@ -52,10 +53,12 @@ router.put('/meetings/:orderNumber', async (req, res) => {
 router.delete('/meetings/:orderNumber', async (req, res) => {
     try {
         const orderNumber = req.params.orderNumber;
-        await meetingService.delete(orderNumber);
+        await meetingService.deleteMeeting(orderNumber);
         res.status(200).json({ message: 'deleted' })
     }
     catch (error) {
         res.status(500).json({ error: error.message })
     }
 })
+
+module.exports = router;

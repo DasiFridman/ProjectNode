@@ -1,5 +1,5 @@
 const express = require('express');
-const businesService = require('../services/business.service');
+const businesService = require('../Services/business.service');
 const router = express.Router();
 
 router.get('/business', async (req, res) => {

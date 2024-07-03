@@ -31,7 +31,7 @@ router.post('/signin', async (req, res) => {
     }
 });
 
-router.post('/users', async (req, res) => {
+router.post('/login', async (req, res) => {
     try {
         const userData = req.body;
         const newUser = await UserService.createUser(userData);
