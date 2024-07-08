@@ -1,7 +1,7 @@
 const Meeting = require('../Models/meetingModel');
 
 class MeetingService {
-    static async getMeetingList() {
+    static async getMeeting() {
         try {
             return await Meeting.find({});
         } catch (error) {

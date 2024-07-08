@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/meetings', async (req, res) => {
     try {
-        const meetings = await meetingService.getMeetingList();
+        const meetings = await meetingService.getMeeting();
         res.send(meetings);
     }
     catch (error) {
